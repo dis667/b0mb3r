@@ -6,11 +6,13 @@ class Zoopt(Service):
 
     async def run(self):
         await self.post(
-            "https://zoopt.ru/api/",
+            "https://zoopt.ru/api_v3/",
             data={
                 "module": "salin.core",
                 "class": r"BonusServer\Auth",
                 "action": "SendSms",
                 "phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),
+                "phone_number": self.format(self.formatted_phone, "+* (***) ***-**-**"),
+                "RS_USER_AGREEMENT": "1"
             },
         )
